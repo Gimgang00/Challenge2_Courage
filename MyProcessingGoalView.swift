@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct MyProcessingGoalView: View {
+    @State var isButtonClicked: Bool = false
+    @State private var isChallengeCheck1 = false // 여기에 State 변수 추가
+    var checkBox_unChecked: String = "CheckBox_unChecked"
+    var checkBox_Checked: String = "CheckBox_Checked"
+    
     var body: some View {
         VStack{
             HStack {
@@ -28,29 +33,44 @@ struct MyProcessingGoalView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 .padding(.top, 40)
             
-                HStack {
-                    Text ("진행중인 도전")
-                        .font(.PretendardBold24)
-                        .foregroundColor(.blackPrimary)
-                    Text ("1/3") //👈여기에 ChallengeStep 변수 넣어야댐 (하 어케?)
-                        .foregroundColor(.yellowSecondary)
-                        .font(.PretendardSemiBold21)
-                    Spacer()
-                }
-                .padding(.top, 79)
             HStack {
-                Text ("100")
-                Toggle("Close windows when quitting an app", isOn: $challengeCheck1) //👈앞단에 변수? 선언하기
-                    .toggleStyle(.checkbox)
+                Text ("진행중인 도전")
+                    .font(.PretendardBold24)
+                    .foregroundColor(.blackPrimary)
+                Text ("1/3") //👈여기에 ChallengeStep 변수 넣어야댐 (하 어케?)
+                    .foregroundColor(.yellowSecondary)
+                    .font(.PretendardSemiBold21)
+                Spacer()
             }
-            
+            .padding(.top, 79)
+
+                Text ("체크 리스트 넣어야해😭")
+                //                                CustomCheckboxView (
+                //                                    isChecked: $isChallengeCheck1,
+                //                                    title: "도전 항목",
+                //                                    CheckBox_Checked: "checkbox_unchecked",  // Assets에 추가한 이미지 이름
+                //                                    CheckBox_Checked: "checkbox_checked"       // Assets에 추가한 이미지 이름
+                //                                )
+                //👈앞단에 변수? 선언하기
             
             Spacer()
+            Button {
+                    isButtonClicked = true
+                } label: {
+                    Text("다음")
+                        .frame (width:361, height: 64)
+                        .font(.PretendardBold24)
+                        .foregroundColor(.blackSecondary)
+                        .background(Color.yellowPrimary)
+                        .clipShape(RoundedRectangle(cornerRadius: 18.0))
+                        .padding()
+                }
+            
+            .padding(.leading)
         }
-        .padding(.leading)
     }
 }
-
+    
 #Preview {
     MyProcessingGoalView()
 }
