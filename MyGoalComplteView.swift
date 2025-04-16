@@ -16,7 +16,7 @@ struct MyGoalComplteView: View {
             Text("축하합니다!")
                 .font(.PretendardBold24)
                 .padding(1)
-            //🤔lineSpacing을 못쓰는데.. .padding은 픽셀 단위로 떨어지는게 아닌거 같음... 흠
+            //🤔lineSpacing을 못쓰는데.. .padding은 픽셀 단위로 떨어지는게 아닌거 같음...아마 1단위가 8픽셀인듯 ㅅㅂㅅㅂㅅㅂㅅㅂ
             Text("Swift UI 걸음마 떼기") // 👈Goal 들어가야함!!
                 .font(.PretendardBold24)
                 .foregroundStyle(

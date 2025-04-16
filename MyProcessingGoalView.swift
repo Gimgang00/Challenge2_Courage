@@ -24,6 +24,7 @@ struct MyProcessingGoalView: View {
                     .font(.PretendardSemiBold21)
                 Spacer ()
             }
+            .padding(.leading)
             .padding(.top, 4)
             Text ("Swift UI 걸음마 떼기") //👈여기에 goal 변수넣기
                 .font(.PretendardBold24)
@@ -42,6 +43,7 @@ struct MyProcessingGoalView: View {
                     .font(.PretendardSemiBold21)
                 Spacer()
             }
+            .padding(.leading)
             .padding(.top, 79)
 
                 Text ("체크 리스트 넣어야해😭")
@@ -65,8 +67,6 @@ struct MyProcessingGoalView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 18.0))
                         .padding()
                 }
-            
-            .padding(.leading)
         }
     }
 }
