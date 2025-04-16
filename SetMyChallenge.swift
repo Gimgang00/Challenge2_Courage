@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SetMyChllange: View {
+struct SetMyChallange: View {
     var body: some View {
         VStack {
             Spacer()
@@ -33,5 +33,5 @@ struct SetMyChllange: View {
 
 
 #Preview {
-    SetMyChllange()
+    SetMyChallange()
 }

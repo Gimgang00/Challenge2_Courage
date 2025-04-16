@@ -38,20 +38,22 @@ struct SetMyGoal: View {
             .padding()
             //.clipShape~padding => TextFiel의 가로 길이 조절하는 코드
             Spacer()
-            Button {
-                isButtonClicked = true
-            } label: {
-                Text("다음")
-                    .frame (width:361, height: 64)
-                    .font(.PretendardBold24)
-                    .foregroundColor(.blackSecondary)
-                    .background(Color.yellowPrimary)
-                    .clipShape(RoundedRectangle(cornerRadius: 18.0))
-                    .padding()
-                    .sheet(isPresented: $isButtonClicked, content: {
-                        SetMyChllange()})
-                    }
+//            NavigationLink(destination: SetMyChallange(goalText: goal), isActive: $isButtonClicked) {
+                Button {
+                    isButtonClicked = true
+                } label: {
+                    Text("다음")
+                        .frame (width:361, height: 64)
+                        .font(.PretendardBold24)
+                        .foregroundColor(.blackSecondary)
+                        .background(Color.yellowPrimary)
+                        .clipShape(RoundedRectangle(cornerRadius: 18.0))
+                        .padding()
+                        .sheet(isPresented: $isButtonClicked, content: {
+                            SetMyChallange()})
+                }
             }
+            
         }
     }
 
