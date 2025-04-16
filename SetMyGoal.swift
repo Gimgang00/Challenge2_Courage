@@ -10,14 +10,17 @@ import SwiftUI
 struct SetMyGoal: View {
     //목표를 저장할 변수
     @State private var goal: String = ""
+    @State var isButtonClicked: Bool = false
+
     
     var body: some View {
         VStack  {
             Spacer()
             ZStack {
                     TextField("나의 목표를 작성해봐요", text: $goal)
-                        .padding()
-                        .frame(width: 361, height: 84)
+                    .frame(height: 84)
+//                        .padding()
+//                        .frame(width: 361, height: 84)
                         //왜 width는 적용이 안되지..?
                         //TextField에 SF Symbol 넣는 방법은??? (text 타입이라..)
                         .font(.PretendardBold24)
@@ -27,19 +30,31 @@ struct SetMyGoal: View {
                         .multilineTextAlignment(.center)
                         //textfield의 Text 중앙정렬
                 Image(systemName: "pencil")
-                //ZStack으로 SF Symbol을 앞 Depth에 배치 (TextFeild에는 Text만)
+                    .offset(x: 130)
+                    .foregroundColor(.blackSecondary)
+                //ZStack으로 SF Symbol을 앞 Depth에 배치 (TextFeild에는 Text만 가능)
             }
+            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+            .padding()
+            //.clipShape~padding => TextFiel의 가로 길이 조절하는 코드
             Spacer()
             Button {
+                isButtonClicked = true
             } label: {
                 Text("다음")
+                    .frame (width:361, height: 64)
                     .font(.PretendardBold24)
                     .foregroundColor(.blackSecondary)
                     .background(Color.yellowPrimary)
+                    .clipShape(RoundedRectangle(cornerRadius: 18.0))
+                    .padding()
+                    .sheet(isPresented: $isButtonClicked, content: {
+                        SetMyChllange()})
+                    }
             }
         }
     }
-}
+
 
 #Preview {
     SetMyGoal()

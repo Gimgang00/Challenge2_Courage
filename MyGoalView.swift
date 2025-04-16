@@ -25,6 +25,8 @@ struct MyGoalView: View {
                 .font(.PretendardBold24)
 //                .font(.system(size: 24))
 //                .fontWeight(.semibold)
+                .foregroundColor(Color.blackPrimary)
+                .lineSpacing(7)
             Button {
                 isButtonClicked = true
             } label: {
