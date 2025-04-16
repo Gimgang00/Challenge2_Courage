@@ -9,9 +9,11 @@ import SwiftUI
 
 extension Color {
     static let yellowPrimary = Color(hex: "#FFD95B")
+    static let yellowSecondary = Color(hex: "FFA724")
     static let material01 = Color(hex: "#F8F8F8")
     static let blackPrimary = Color(hex: "#000000")
     static let blackSecondary = Color(hex: "#6D6D6D")
+    
 }
 
 extension Color {
