@@ -165,14 +165,15 @@ struct MyProcessingGoalView: View {
             Button {
                     isButtonClicked = true
                 } label: {
-                    Text("다음")
+                    Text("목표 포기하기")
                         .frame (width:361, height: 64)
                         .font(.PretendardBold24)
                         .foregroundColor(.blackSecondary)
                         .background(Color.yellowPrimary)
                         .clipShape(RoundedRectangle(cornerRadius: 18.0))
                         .padding()
-                }
+                }//버튼 포기 경고 모달 띄우기
+                .navigationBarBackButtonHidden(true)
         }
     }
 

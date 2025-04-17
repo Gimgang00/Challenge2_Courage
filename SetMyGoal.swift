@@ -71,13 +71,13 @@ struct SetMyGoal: View {
                         .foregroundColor(.blackSecondary)
                         .padding(.horizontal, 40.0)
                         .background(Color.material01)
-                        .multilineTextAlignment(.center)
+                        .multilineTextAlignment(.center) //텍스트필드 텍스트 중앙정렬
                     
                     Image(systemName: "pencil")
                         .offset(x: 130)
                         .foregroundColor(.blackSecondary)
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                .clipShape(RoundedRectangle(cornerRadius: 25.0)) //텍스트필트 텍스트 라운딩
                 .padding()
                 
                 Spacer()
