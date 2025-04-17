@@ -20,7 +20,7 @@ struct Challenge2_CourageApp: App {
 struct Goal: Hashable {
     var goal: String
     var challenge: String
-    var isDone: Bool //목표 성취 여부 변수
+    var isDone: Bool //목표 성취 여부 변수!
 }
 
 
