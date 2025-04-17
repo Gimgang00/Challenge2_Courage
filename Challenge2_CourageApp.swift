@@ -16,6 +16,14 @@ struct Challenge2_CourageApp: App {
     }
 }
 
+// MARK: - 데이터 모델 정의
+struct Goal: Hashable {
+    var goal: String
+    var challenge: String
+    var isDone: Bool //목표 성취 여부 변수
+}
+
+
 #Preview {
     ContentView()
 }

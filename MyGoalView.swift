@@ -13,9 +13,6 @@ struct MyGoalView: View {
     var body: some View {
         Text("나의 목표")
             .font(.PretendardBold34)
-//            .font(.system(size: 34))
-//            .fontWeight(.bold)
-//갓갓홍이 쳐 준 코드 주석
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading)
             .padding(.top, 4)
@@ -23,8 +20,6 @@ struct MyGoalView: View {
             Spacer()
             Text("현재 진행중인 목표가 없어요\n목표와 도전을 설정해보세요!")
                 .font(.PretendardBold24)
-//                .font(.system(size: 24))
-//                .fontWeight(.semibold)
                 .foregroundColor(Color.blackPrimary)
                 .lineSpacing(7)
             Button {
@@ -32,8 +27,6 @@ struct MyGoalView: View {
             } label: {
                 Text("목표 만들기")
                     .font(.PretendardBold24)
-//                    .font(.system(size: 24))
-//                    .fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.vertical, 14)
                     .background(Color.yellowPrimary)
