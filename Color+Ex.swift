@@ -13,6 +13,8 @@ extension Color {
     static let yellow4Gradient = Color(hex: "FFD138")
 
     static let material01 = Color(hex: "#F8F8F8")
+    static let material02 = Color(hex: "#EFEFEF")
+
     static let blackPrimary = Color(hex: "#000000")
     static let blackSecondary = Color(hex: "#6D6D6D")
     
