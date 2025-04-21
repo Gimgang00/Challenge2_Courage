@@ -10,14 +10,16 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            Tab("나의 목표", systemImage: "house") {
-                MyGoalView()//Mygoal view로
+            Tab("나의 목표",
+                image: "icon_MyGoal"){
+                MyGoalView()//Mygoal view로 이동
             }
-            Tab("나의 목표", systemImage: "house") {
+            Tab("달성한 목표",
+                image:"SealCheckIcon_Inactive") {
                 MyGoalView()//나의달성한목표 view 추가후 이동
             }
         }
-        .tint(Color.red)
+        .tint(Color.yellowSecondary)
     }
 }
 
