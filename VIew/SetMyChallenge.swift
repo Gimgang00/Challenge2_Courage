@@ -11,6 +11,7 @@ struct SetMyChallange: View {
     @State private var challenge: String = ""
     @State private var buttonClicked: Bool = false
     @State private var navigateToRoot = false //네비게이션 스택에 새 뷰 추가 (RootView처럼 눈속임)
+    let goalAdded: String
     
     var body: some View {
         VStack {
@@ -26,7 +27,7 @@ struct SetMyChallange: View {
                 Spacer()
                 
                 
-                NavigationLink(destination: MyProcessingGoalView()) { //👈기간 설정 페이지 만들고 destination 뷰 변경하기
+                NavigationLink(destination: MyProcessingGoalView(goalAdded:goalAdded)) { //👈기간 설정 페이지 만들고 destination 뷰 변경하기
                     Button {
                         navigateToRoot = true
                     } label: {
@@ -41,7 +42,7 @@ struct SetMyChallange: View {
                 }
                 .navigationBarBackButtonHidden(true)
                 .navigationDestination(isPresented: $navigateToRoot) {
-                    MyProcessingGoalView()
+                    MyProcessingGoalView(goalAdded:goalAdded)
                         .navigationBarBackButtonHidden(true)
                 }
             }
@@ -54,5 +55,5 @@ struct SetMyChallange: View {
 
 
 #Preview {
-    SetMyChallange()
+    SetMyChallange(goalAdded:("목표임시"))
 }

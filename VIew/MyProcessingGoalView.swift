@@ -14,6 +14,7 @@ struct MyProcessingGoalView: View {
     @State private var isChecked3 = false // 여기에 State 변수 추가
     var checkBox_unChecked: String = "CheckBox_unChecked"
     var checkBox_Checked: String = "CheckBox_Checked"
+    let goalAdded: String
     
     var body: some View {
         VStack{
@@ -29,7 +30,7 @@ struct MyProcessingGoalView: View {
             .padding(.leading)
             .padding(.top, 4)
             
-            Text ("Swift UI 걸음마 떼기") //👈여기에 goal 변수넣기
+            Text (goalAdded) //👈여기에 goal 변수넣기
                 .font(.PretendardBold24)
                 .foregroundColor(.blackPrimary)
                 .frame(width:361, height:84)
@@ -119,5 +120,5 @@ struct ExtractedView: View {
 }
 
 #Preview {
-    MyProcessingGoalView()
+    MyProcessingGoalView(goalAdded: ("임시 목표"))
 }

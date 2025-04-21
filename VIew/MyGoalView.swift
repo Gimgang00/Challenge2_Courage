@@ -23,7 +23,7 @@ struct MyGoalView: View {
                     .font(.PretendardBold24)
                     .foregroundColor(Color.blackPrimary)
                     .lineSpacing(7)
-                NavigationLink (destination: SetMyGoal(goalAdded: .constant("목표를 추가해보세요")))
+                NavigationLink (destination: SetMyGoal(goalAdded: .constant("목표를 추가해보세요!")))
                 {
                     Text("목표 만들기")
                         .font(.PretendardBold24)

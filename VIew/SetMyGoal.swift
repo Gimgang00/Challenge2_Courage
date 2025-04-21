@@ -67,7 +67,7 @@ struct SetMyGoal: View {
             VStack {
                 Spacer()
                 ZStack {
-                    TextField( "나의 목표를 작성해봐요", text: $goalToAdd)
+                    TextField( "나의 목표를 작성해봥", text: $goalToAdd)
                         .onSubmit {
                             if !goalToAdd.isEmpty {
 //                                goalToAdd = ""
@@ -91,7 +91,7 @@ struct SetMyGoal: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: SetMyChallange()) {
+                NavigationLink(destination: SetMyChallange(goalAdded: goalAdded)) {
                     Text("다음")
                         .frame(width: 361, height: 64)
                         .font(.PretendardBold24)

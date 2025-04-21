@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {    
+struct ContentView: View {
+    
+    
     var body: some View {
         TabView {
             Tab("나의 목표",
