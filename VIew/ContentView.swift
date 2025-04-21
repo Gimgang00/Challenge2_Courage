@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View {    
     var body: some View {
         TabView {
             Tab("나의 목표",
@@ -16,7 +16,7 @@ struct ContentView: View {
             }
             Tab("달성한 목표",
                 image:"SealCheckIcon_Inactive") {
-                MyGoalView()//나의달성한목표 view 추가후 이동
+                MyGoalComplete()//나의달성한목표 view 추가후 이동
             }
         }
         .tint(Color.yellowSecondary)

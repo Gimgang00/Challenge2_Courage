@@ -58,14 +58,23 @@ import SwiftUI
 
 struct SetMyGoal: View {
     //목표를 저장할 변수
-    @State private var goal: String = ""
+    @State private var goalToAdd = ""
+    @Binding var goalAdded: String
+    
     
     var body: some View {
         NavigationStack {
             VStack {
                 Spacer()
                 ZStack {
-                    TextField("나의 목표를 작성해봐요", text: $goal)
+                    TextField( "나의 목표를 작성해봐요", text: $goalToAdd)
+                        .onSubmit {
+                            if !goalToAdd.isEmpty {
+//                                goalToAdd = ""
+                                goalAdded.append(goalToAdd)
+                                goalToAdd = ""
+                            }
+                        }
                         .frame(height: 84)
                         .font(.PretendardBold24)
                         .foregroundColor(.blackSecondary)
@@ -98,6 +107,6 @@ struct SetMyGoal: View {
 
 
 #Preview {
-    SetMyGoal()
+    SetMyGoal(goalAdded: .constant("목표를 추가해보세요"))
 }
 
