@@ -61,12 +61,13 @@ struct SetMyGoal: View {
     @State private var goalToAdd = ""
     @Binding var goalAdded: String
     
+    
     var body: some View {
         NavigationStack {
             VStack {
                 Spacer()
                 ZStack {
-                    TextField("나의 목표를 작성해봐요", text: $goalToAdd)
+                    TextField( "나의 목표를 작성해봥", text: $goalToAdd)
                         .onSubmit {
                             if !goalToAdd.isEmpty {
 //                                goalToAdd = ""
@@ -87,6 +88,7 @@ struct SetMyGoal: View {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 25.0)) //텍스트필트 텍스트 라운딩
                 .padding()
+                
                 Spacer()
                 
                 NavigationLink(destination: SetMyChallange(goalAdded: goalAdded)) {
@@ -102,6 +104,7 @@ struct SetMyGoal: View {
         }
     }
 }
+
 
 #Preview {
     SetMyGoal(goalAdded: .constant("목표를 추가해보세요"))
