@@ -60,7 +60,7 @@ struct SetMyGoal: View {
     //목표를 저장할 변수
     @State private var goalToAdd = ""
     @Binding var goalAdded: String
-    @Binding var challengeAdded: String
+    @Binding var challengeAdded: [String]
     
     var body: some View {
         NavigationStack {
@@ -68,7 +68,7 @@ struct SetMyGoal: View {
                 Spacer()
                 ZStack {
                     TextField("나의 목표를 작성해봐요", text: $goalToAdd)
-                    //TODO: 리턴 안누르고, 다음 버튼 눌러도 데이터 저장되게 하기
+                    //TODO: 리턴키 안누르고, 다음 버튼 눌러도 데이터 저장되게 하기
                         .onSubmit {
                             if !goalToAdd.isEmpty {
 //                                goalToAdd = ""
@@ -107,5 +107,5 @@ struct SetMyGoal: View {
 }
 
 #Preview {
-    SetMyGoal(goalAdded: .constant("목표를 추가해보세요"), challengeAdded: .constant("CHALLENGE"))
+    SetMyGoal(goalAdded: .constant("목표를 추가해보세요"), challengeAdded: .constant(["CHALLENGE"]))
 }

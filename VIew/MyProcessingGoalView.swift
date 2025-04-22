@@ -9,13 +9,20 @@ import SwiftUI
 
 struct MyProcessingGoalView: View {
     @State var isButtonClicked: Bool = false
+    @State private var isChecked = [false]
     @State private var isChecked1 = false // 여기에 State 변수 추가
     @State private var isChecked2 = false // 여기에 State 변수 추가
     @State private var isChecked3 = false // 여기에 State 변수 추가
     var checkBox_unChecked: String = "CheckBox_unChecked"
     var checkBox_Checked: String = "CheckBox_Checked"
     let goalAdded: String
-    let challengeAdded: String
+    let challengeAdded: [String]
+    
+    init(goalAdded: String, challengeAdded: [String]) {
+            self.goalAdded = goalAdded
+            self.challengeAdded = challengeAdded
+            self._isChecked = State(initialValue: Array(repeating: false, count: challengeAdded.count))
+        }
     
     var body: some View {
         VStack{
@@ -43,23 +50,33 @@ struct MyProcessingGoalView: View {
                 Text ("진행중인 도전")
                     .font(.PretendardBold24)
                     .foregroundColor(.blackPrimary)
+                    .padding(.bottom, 24)
+
+                
                 Text ("\(numberOfChecked())/3") //👈 전체 도전 갯수 적용해야함
                     .foregroundColor(.yellowSecondary)
                     .font(.PretendardSemiBold21)
+                    .padding(.bottom, 24)
+                
                 Spacer()
             }
             .padding(.leading)
             .padding(.top, 79)
             
-            //체크리스트1 코드 1️⃣
-            ExtractedView(listNumber: 1, listTitle: challengeAdded, isChecked: $isChecked1)
-            //TODO: listTitle에 challenge 변수 받아오기!!
-            
-            //체크리스트2 코드 2️⃣
-            ExtractedView(listNumber: 2, listTitle: "리오의 유튜브 다 보기", isChecked: $isChecked2)
-            
-            //체크리스트3 코드 3️⃣
-            ExtractedView(listNumber: 3, listTitle: "계산기 만들어보기", isChecked: $isChecked3)
+            //TODO: 체크리스트1 코드 list 분석하기
+            VStack(spacing:16 ) {
+                ForEach(Array(challengeAdded.enumerated()), id: \.offset) { index, challenge in
+                    ExtractedView(listNumber: index + 1, listTitle: challenge, isChecked: $isChecked[index])
+                }
+            }
+//            ExtractedView(listNumber: 1, listTitle: challengeAdded, isChecked: $isChecked1)
+//            //TODO: listTitle에 challenge 변수 받아오기!!
+//            
+//            //체크리스트2 코드 2️⃣
+//            ExtractedView(listNumber: 2, listTitle: "리오의 유튜브 다 보기", isChecked: $isChecked2)
+//            
+//            //체크리스트3 코드 3️⃣
+//            ExtractedView(listNumber: 3, listTitle: "계산기 만들어보기", isChecked: $isChecked3)
         }
         
         Spacer()
@@ -80,7 +97,7 @@ struct MyProcessingGoalView: View {
     
     //체크된 항목 개수 반환
     private func numberOfChecked() -> Int {
-        [isChecked1, isChecked2, isChecked3].filter { $0 }.count //.filter { $0 } = 배열에서 true인 값만 남깁니다.
+        isChecked.filter { $0 }.count //.filter { $0 } 는 배열에서 true인 값만 남깁니다.
     }
 }
 
@@ -123,5 +140,5 @@ struct ExtractedView: View {
 }
 
 #Preview {
-    MyProcessingGoalView(goalAdded: "임시 목표", challengeAdded: "임시 도전")
+    MyProcessingGoalView(goalAdded: "임시 목표", challengeAdded: ["임시 도전"])
 }

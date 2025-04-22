@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MyGoalView: View {
     @State var goalAdded = ""
-    @State var challengeAdded = ""
+    @State var challengeAdded: [String] = []
     
     var body: some View {
         NavigationStack {
