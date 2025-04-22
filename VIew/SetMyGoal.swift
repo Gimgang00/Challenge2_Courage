@@ -5,7 +5,6 @@
 //  Created by Jacob on 4/13/25.
 //
 
-import SwiftUI
 
 //struct SetMyGoal: View {
 //    //목표를 저장할 변수
@@ -55,11 +54,13 @@ import SwiftUI
 //        }
 //    }
 //}
+import SwiftUI
 
 struct SetMyGoal: View {
     //목표를 저장할 변수
     @State private var goalToAdd = ""
     @Binding var goalAdded: String
+    @Binding var challengeAdded: String
     
     var body: some View {
         NavigationStack {
@@ -90,7 +91,8 @@ struct SetMyGoal: View {
                 .padding()
                 Spacer()
                 
-                NavigationLink(destination: SetMyChallange(goalAdded: goalAdded)) {
+                NavigationLink(destination: SetMyChallange(goalAdded: goalAdded, challengeAdded: $challengeAdded))
+                {
                     Text("다음")
                         .frame(width: 361, height: 64)
                         .font(.PretendardBold24)
@@ -105,6 +107,5 @@ struct SetMyGoal: View {
 }
 
 #Preview {
-    SetMyGoal(goalAdded: .constant("목표를 추가해보세요"))
+    SetMyGoal(goalAdded: .constant("목표를 추가해보세요"), challengeAdded: .constant("CHALLENGE"))
 }
-

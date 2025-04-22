@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct SetMyChallange: View {
-    @State private var challenge: String = ""
+    @State private var challengeToAdd: String = ""
     @State private var buttonClicked: Bool = false
-    @State private var navigateToRoot = false //네비게이션 스택에 새 뷰 추가 (RootView처럼 눈속임)
+    @State private var navigateToRoot = false
+    //네비게이션 스택에 새 뷰 추가 (RootView처럼 눈속임)
     let goalAdded: String
+    @Binding var challengeAdded: String
     
     var body: some View {
         VStack {
             NavigationStack {
                 Spacer()
-                TextField("목표를 위한 도전을 작성해보세요", text: $challenge)
+                TextField("목표를 위한 도전을 작성해보세요", text: $challengeToAdd)
+                    .onSubmit {if !challengeToAdd.isEmpty {
+                        challengeAdded = challengeToAdd
+                        challengeToAdd = ""
+                    }
+                    }
                     .frame(height: 84)
                     .font(.PretendardBold24)
                     .background(Color.material01)
@@ -27,7 +34,7 @@ struct SetMyChallange: View {
                 Spacer()
                 
                 
-                NavigationLink(destination: MyProcessingGoalView(goalAdded:goalAdded)) { //👈 받은 goalAdded를 그대로 다음 뷰로 전달
+                NavigationLink(destination: MyProcessingGoalView(goalAdded:goalAdded, challengeAdded: challengeAdded)) { //👈 받은 goalAdded를 그대로 다음 뷰로 전달
                     Button {
                         navigateToRoot = true
                     } label: {
@@ -42,7 +49,7 @@ struct SetMyChallange: View {
                 }
                 .navigationBarBackButtonHidden(true)
                 .navigationDestination(isPresented: $navigateToRoot) {
-                    MyProcessingGoalView(goalAdded:goalAdded)
+                    MyProcessingGoalView(goalAdded:goalAdded, challengeAdded: challengeAdded)
                         .navigationBarBackButtonHidden(true)
                 }
             }
@@ -55,5 +62,5 @@ struct SetMyChallange: View {
 
 
 #Preview {
-    SetMyChallange(goalAdded:("목표임시"))
+    SetMyChallange(goalAdded:("목표임시"), challengeAdded: .constant("챌린지임시"))
 }

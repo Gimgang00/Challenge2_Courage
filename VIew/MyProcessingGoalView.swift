@@ -15,6 +15,7 @@ struct MyProcessingGoalView: View {
     var checkBox_unChecked: String = "CheckBox_unChecked"
     var checkBox_Checked: String = "CheckBox_Checked"
     let goalAdded: String
+    let challengeAdded: String
     
     var body: some View {
         VStack{
@@ -30,7 +31,7 @@ struct MyProcessingGoalView: View {
             .padding(.leading)
             .padding(.top, 4)
             
-            Text (goalAdded) //👈여기에 goal 변수넣기
+            Text (goalAdded) //👈여기에 goalAdded 넣음
                 .font(.PretendardBold24)
                 .foregroundColor(.blackPrimary)
                 .frame(width:361, height:84)
@@ -51,7 +52,8 @@ struct MyProcessingGoalView: View {
             .padding(.top, 79)
             
             //체크리스트1 코드 1️⃣
-            ExtractedView(listNumber: 1, listTitle: "변수와 상수 배우기", isChecked: $isChecked1)
+            ExtractedView(listNumber: 1, listTitle: challengeAdded, isChecked: $isChecked1)
+            //TODO: listTitle에 challenge 변수 받아오기!!
             
             //체크리스트2 코드 2️⃣
             ExtractedView(listNumber: 2, listTitle: "리오의 유튜브 다 보기", isChecked: $isChecked2)
@@ -85,7 +87,8 @@ struct MyProcessingGoalView: View {
 struct ExtractedView: View {
     let listNumber: Int
     let listTitle: String
-    @Binding var isChecked: Bool //체크버튼 이미지 출력에 사용할 변수
+    @Binding var isChecked: Bool
+    //체크버튼 이미지 출력에 사용할 변수
     
     var body: some View {
         HStack{
@@ -98,7 +101,7 @@ struct ExtractedView: View {
                 )
                 .padding(.leading, 28)
             
-            Text (listTitle) // 👈challenge 변수 들어가야함
+            Text (listTitle)
                 .font(.PretendardMedium21)
                 .padding(.leading, 18)
             
@@ -120,5 +123,5 @@ struct ExtractedView: View {
 }
 
 #Preview {
-    MyProcessingGoalView(goalAdded: ("임시 목표"))
+    MyProcessingGoalView(goalAdded: "임시 목표", challengeAdded: "임시 도전")
 }

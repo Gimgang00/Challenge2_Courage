@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MyGoalView: View {
     @State var goalAdded = ""
+    @State var challengeAdded = ""
     
     var body: some View {
         NavigationStack {
@@ -23,7 +24,7 @@ struct MyGoalView: View {
                     .font(.PretendardBold24)
                     .foregroundColor(Color.blackPrimary)
                     .lineSpacing(7)
-                NavigationLink (destination: SetMyGoal(goalAdded: $goalAdded))
+                NavigationLink (destination: SetMyGoal(goalAdded: $goalAdded, challengeAdded: $challengeAdded))
                 {
                     Text("목표 만들기")
                         .font(.PretendardBold24)
